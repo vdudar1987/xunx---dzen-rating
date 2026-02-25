@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RateScope — Рейтинги и аналитика каналов</title>
+    <meta
+      name="description"
+      content="Нейтральный dashboard-шаблон для рейтингового контент-сайта с аналитическим фокусом."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Основной контейнер страницы -->
+    <div class="site-shell">
+      <!-- Шапка сайта -->
+      <header class="site-header panel" aria-label="Шапка сайта">
+        <a class="logo" href="#" aria-label="RateScope: на главную">RateScope</a>
+
+        <nav class="main-nav" aria-label="Основная навигация">
+          <a href="#">Главная</a>
+          <a href="#">Каналы</a>
+          <a href="#">Рейтинг</a>
+          <a href="#">О проекте</a>
+        </nav>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">
+          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle__text">Тёмная тема</span>
+        </button>
+      </header>
+
+      <!-- Hero + аналитические KPI -->
+      <section class="hero panel" aria-label="Вступительный блок">
+        <div class="hero__content">
+          <p class="eyebrow">Аналитическая платформа</p>
+          <h1>Рейтинг контент-каналов в формате dashboard</h1>
+          <p class="hero__lead">
+            Следите за динамикой каналов, вовлечённостью аудитории и стабильностью публикаций в
+            едином спокойном интерфейсе.
+          </p>
+        </div>
+
+        <div class="kpi-grid" aria-label="Ключевые показатели">
+          <article class="kpi-card">
+            <p>Активных каналов</p>
+            <strong>2 348</strong>
+            <span>+8.2% за месяц</span>
+          </article>
+          <article class="kpi-card">
+            <p>Средний ER</p>
+            <strong>7.6%</strong>
+            <span>Выше медианы рынка</span>
+          </article>
+          <article class="kpi-card">
+            <p>Публикаций сегодня</p>
+            <strong>912</strong>
+            <span>В реальном времени</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- Асимметричная зона с лентой и сайдбаром -->
+      <main class="layout-grid" aria-label="Контент и боковая колонка">
+        <section class="content-feed" aria-label="Сетка карточек контента">
+          <h2>Лидеры по вовлечённости</h2>
+
+          <div class="cards-grid">
+            <article class="content-card panel">
+              <div class="poster" role="img" aria-label="Постер канала ТехноСфера"></div>
+              <div class="card-body">
+                <h3>ТехноСфера: нейросети в бизнес-процессах</h3>
+                <ul class="metrics" aria-label="Метрики публикации">
+                  <li>👁 124K</li>
+                  <li>❤ 5.1K</li>
+                  <li>💬 482</li>
+                </ul>
+                <div class="card-footer">
+                  <span>Чтение: 6 мин</span>
+                  <a href="#" class="btn">Подробнее</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card panel">
+              <div class="poster" role="img" aria-label="Постер канала Город и данные"></div>
+              <div class="card-body">
+                <h3>Город и данные: как меняется инфраструктура</h3>
+                <ul class="metrics" aria-label="Метрики публикации">
+                  <li>👁 98K</li>
+                  <li>❤ 3.8K</li>
+                  <li>💬 361</li>
+                </ul>
+                <div class="card-footer">
+                  <span>Чтение: 4 мин</span>
+                  <a href="#" class="btn">Подробнее</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card panel panel--wide">
+              <div class="poster" role="img" aria-label="Постер канала Data Review"></div>
+              <div class="card-body">
+                <h3>Data Review: отчёт по нишам с самой быстрой динамикой</h3>
+                <ul class="metrics" aria-label="Метрики публикации">
+                  <li>👁 176K</li>
+                  <li>❤ 8.2K</li>
+                  <li>💬 713</li>
+                </ul>
+                <div class="card-footer">
+                  <span>Чтение: 8 мин</span>
+                  <a href="#" class="btn">Подробнее</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card panel">
+              <div class="poster" role="img" aria-label="Постер канала Fin Signals"></div>
+              <div class="card-body">
+                <h3>Fin Signals: квартальные тренды и поведение аудиторий</h3>
+                <ul class="metrics" aria-label="Метрики публикации">
+                  <li>👁 87K</li>
+                  <li>❤ 2.9K</li>
+                  <li>💬 249</li>
+                </ul>
+                <div class="card-footer">
+                  <span>Чтение: 5 мин</span>
+                  <a href="#" class="btn">Подробнее</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card panel">
+              <div class="poster" role="img" aria-label="Постер канала Маркет-пульс"></div>
+              <div class="card-body">
+                <h3>Маркет-пульс: поведенческие паттерны и конверсия</h3>
+                <ul class="metrics" aria-label="Метрики публикации">
+                  <li>👁 102K</li>
+                  <li>❤ 4.4K</li>
+                  <li>💬 387</li>
+                </ul>
+                <div class="card-footer">
+                  <span>Чтение: 7 мин</span>
+                  <a href="#" class="btn">Подробнее</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <aside class="sidebar" aria-label="Дополнительные блоки">
+          <section class="panel side-block">
+            <h2>Топ каналов</h2>
+            <ol>
+              <li><span>1.</span> Data Review <small>ER 9.2%</small></li>
+              <li><span>2.</span> ТехноСфера <small>ER 8.7%</small></li>
+              <li><span>3.</span> Маркет-пульс <small>ER 7.9%</small></li>
+              <li><span>4.</span> Город и данные <small>ER 7.4%</small></li>
+              <li><span>5.</span> Fin Signals <small>ER 7.1%</small></li>
+            </ol>
+          </section>
+
+          <section class="panel side-block ad-placeholder" aria-label="Рекламный блок">
+            <h2>Рекламный блок</h2>
+            <p>Место для интеграции спонсорского баннера 300×250.</p>
+          </section>
+        </aside>
+      </main>
+
+      <!-- Подвал -->
+      <footer class="site-footer panel" aria-label="Подвал сайта">
+        <nav aria-label="Навигация в подвале">
+          <a href="#">Главная</a>
+          <a href="#">Каналы</a>
+          <a href="#">Рейтинг</a>
+          <a href="#">О проекте</a>
+        </nav>
+        <p>© 2026 RateScope. Все права защищены.</p>
+      </footer>
+    </div>
+
+    <script>
+      // Простое переключение светлой/тёмной темы через data-атрибут и localStorage.
+      const themeToggleButton = document.getElementById('themeToggle');
+      const rootElement = document.documentElement;
+      const themeLabel = themeToggleButton.querySelector('.theme-toggle__text');
+      const savedTheme = localStorage.getItem('ratescope-theme');
+
+      if (savedTheme === 'dark') {
+        rootElement.setAttribute('data-theme', 'dark');
+        themeLabel.textContent = 'Светлая тема';
+      }
+
+      themeToggleButton.addEventListener('click', () => {
+        const isDark = rootElement.getAttribute('data-theme') === 'dark';
+        const nextTheme = isDark ? 'light' : 'dark';
+
+        rootElement.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('ratescope-theme', nextTheme);
+        themeLabel.textContent = nextTheme === 'dark' ? 'Светлая тема' : 'Тёмная тема';
+      });
+    </script>
+  </body>
+</html>
