@@ -20,8 +20,122 @@
     <!-- Основной контейнер страницы -->
     <div class="site-shell">
       <!-- Шапка сайта -->
+	  <style>
+	  .symbol-underline {
+  position: relative;
+  display: inline-block;
+  font-size: 36px;
+  padding: 20px 0;
+  width: 40px;
+  text-align: center;
+}
+
+.symbol-underline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #e5ecff;
+}
+
+.symbol-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #e5ecff;
+}
+	  </style>
+
       <header class="site-header panel" aria-label="Шапка сайта">
-        <a class="logo" href="#" aria-label="RateScope: на главную">RateScope</a>
+        <!--<a class="logo" style="font-size: 1.8rem;" href="#" aria-label="RateScope: на главную"><span style="color:red;">x</span><span style="color:green;">u</span><span class="symbol-underline" style="font-size: 1.9rem;"> | </span><span style="color:green;">n</span><span style="color:red;">x</span></a>-->
+        <a class="logo" style="font-size: 1.8rem;" href="#" aria-label="RateScope: на главную"><img id="myImage" src="logo.png" alt="Rotating image"></a>
+
+
+	  <script>
+	  
+	  class ImageRotator {
+  constructor(imageElement, options = {}) {
+    this.image = imageElement;
+    this.rotationAngle = 0;
+    this.isRotating = false;
+    
+    // Настройки с возможностью переопределения
+    this.rotationTime = options.rotationTime || 2000; // время вращения на 180° (мс)
+    this.pauseTime = options.pauseTime || 4000;       // время паузы (мс)
+    this.rotationStep = options.rotationStep || 180;  // шаг вращения (градусы)
+    
+    this.startRotation();
+  }
+  
+  startRotation() {
+    this.rotateStep();
+  }
+  
+  rotateStep() {
+    if (this.isRotating) return;
+    
+    this.isRotating = true;
+    const startAngle = this.rotationAngle;
+    const targetAngle = startAngle + this.rotationStep;
+    const startTime = performance.now();
+    
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / this.rotationTime, 1);
+      
+      // Плавное вращение
+      this.rotationAngle = startAngle + (this.rotationStep * progress);
+      this.image.style.transform = `rotate(${this.rotationAngle}deg)`;
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        // Завершили вращение
+        this.isRotating = false;
+        
+        // Пауза перед следующим шагом
+        setTimeout(() => {
+          this.rotateStep();
+        }, this.pauseTime);
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  }
+  
+  // Методы для управления
+  stop() {
+    this.isRotating = false;
+  }
+  
+  setSpeed(rotationTime, pauseTime) {
+    this.rotationTime = rotationTime;
+    this.pauseTime = pauseTime;
+  }
+}
+
+// Использование:
+const image = document.getElementById('myImage');
+
+const rotator = new ImageRotator(image, {
+  rotationTime: 2000,  // 2 секунды на 180°
+  pauseTime: 4000,      // 4 секунды пауза
+  rotationStep: 180     // вращение на 180° за шаг
+});
+
+// Для остановки:
+//rotator.stop();
+
+// Для изменения скорости:
+// rotator.setSpeed(1000, 2000); // 1 сек вращение, 2 сек пауза
+	  
+	  </script>
+
 
         <nav class="main-nav" aria-label="Основная навигация">
           <a href="#">Главная</a>
