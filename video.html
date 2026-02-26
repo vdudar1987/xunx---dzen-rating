@@ -35,8 +35,8 @@
         </button>
       </header>
 
-      <main>
-        <article class="panel detail-card" aria-label="Страница видео">
+      <main class="detail-layout" aria-label="Страница видео">
+        <article class="panel detail-card" aria-label="Основной контент видео">
           <p class="eyebrow">Видео</p>
           <h1>Разбор метрик: что влияет на рост канала в 2026 году</h1>
 
@@ -51,13 +51,6 @@
             ></iframe>
           </div>
 
-          <ul class="detail-meta" aria-label="Метаданные видео">
-            <li>Автор: Tech Scope</li>
-            <li>Дата: 20 января 2026</li>
-            <li>Длительность: 12:34</li>
-            <li>Просмотры: 89K</li>
-          </ul>
-
           <p class="video-description">
             В этом выпуске разбираем сигналы, которые помогают оценить качество контента: глубину
             просмотра, удержание аудитории, комментарии и повторные визиты. Пошагово показываем,
@@ -65,10 +58,54 @@
           </p>
 
           <a class="btn detail-link" href="https://dzen.ru" target="_blank" rel="noopener noreferrer">
-            Читать полностью
+            Смотреть в Дзене
           </a>
         </article>
+
+        <aside class="sidebar detail-sidebar" aria-label="Сайдбар видео">
+          <section class="panel side-block detail-author-card">
+            <h2>Tech Scope</h2>
+            <div class="detail-poster detail-poster--video" role="img" aria-label="Постер видео Tech Scope"></div>
+            <ul class="detail-meta detail-meta--stack" aria-label="Метаданные видео">
+              <li>🎬 Автор: Tech Scope</li>
+              <li>📅 Дата: 20 января 2026</li>
+              <li>👁 89K</li>
+              <li>❤ 3.1K</li>
+              <li>💬 244</li>
+              <li>⏱ Длительность: 12:34</li>
+            </ul>
+          </section>
+
+          <section class="panel side-block" aria-label="Похожие видео">
+            <h2>Похожие видео</h2>
+            <div class="related-list">
+              <article class="related-item">
+                <h3>Удержание аудитории: как читать графики в аналитике</h3>
+                <p>👁 64K · ❤ 2.2K · 💬 149</p>
+              </article>
+              <article class="related-item">
+                <h3>ТОП-ошибки в упаковке видео для рекомендательной ленты</h3>
+                <p>👁 59K · ❤ 1.9K · 💬 130</p>
+              </article>
+            </div>
+          </section>
+        </aside>
       </main>
+
+      <section class="panel comments-block" aria-label="Комментарии к видео">
+        <h2>Комментарии</h2>
+        <form class="comment-form">
+          <label for="videoComment">Ваш комментарий</label>
+          <textarea id="videoComment" placeholder="Что думаете об этом видео?"></textarea>
+          <button class="btn" type="submit">Отправить</button>
+        </form>
+
+        <article class="comment-item">
+          <strong>Марина К.</strong>
+          <span>45 минут назад</span>
+          <p>Супер-полезно про удержание! Хотелось бы отдельный выпуск про сценарии для первых 15 секунд.</p>
+        </article>
+      </section>
 
       <footer class="site-footer panel" aria-label="Подвал сайта">
         <nav aria-label="Навигация в подвале">
