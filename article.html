@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RateScope — Статья</title>
+    <meta
+      name="description"
+      content="Шаблон страницы статьи: заголовок, метаданные, текст и ссылка на оригинал в Дзене."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="site-shell detail-shell">
+      <header class="site-header panel" aria-label="Шапка сайта">
+        <a class="logo" style="font-size: 1.8rem;" href="index.html" aria-label="RateScope: на главную">
+          <img id="myImage" src="logo.png" alt="Rotating image" />
+        </a>
+
+        <nav class="main-nav" aria-label="Основная навигация">
+          <a href="index.html">Главная</a>
+          <a href="article.html">Статья</a>
+          <a href="video.html">Видео</a>
+        </nav>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">
+          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle__text">Тёмная тема</span>
+        </button>
+      </header>
+
+      <main>
+        <article class="panel detail-card" aria-label="Страница статьи">
+          <p class="eyebrow">Статья</p>
+          <h1>Как аналитика каналов помогает масштабировать контент-стратегию</h1>
+
+          <ul class="detail-meta" aria-label="Метаданные публикации">
+            <li>Автор: Data Review</li>
+            <li>Дата: 18 января 2026</li>
+            <li>Чтение: 7 минут</li>
+            <li>Просмотры: 124K</li>
+          </ul>
+
+          <div class="article-content">
+            <p>
+              В конкурентной среде важно не только выпускать качественный контент, но и понимать,
+              какие публикации реально влияют на рост аудитории. Регулярная аналитика помогает
+              увидеть, какие темы удерживают внимание, какие форматы повышают дочитываемость и
+              в какие периоды пользователи реагируют активнее всего.
+            </p>
+            <p>
+              При работе с рейтингами каналов полезно сравнивать метрики не изолированно, а в
+              динамике: как меняются просмотры, вовлечённость и доля возвращающихся читателей.
+              Это позволяет принимать решения на основе данных, а не интуиции, и постепенно
+              усиливать редакционную стратегию.
+            </p>
+          </div>
+
+          <a class="btn detail-link" href="https://dzen.ru" target="_blank" rel="noopener noreferrer">
+            Читать полностью
+          </a>
+        </article>
+      </main>
+
+      <footer class="site-footer panel" aria-label="Подвал сайта">
+        <nav aria-label="Навигация в подвале">
+          <a href="index.html">Главная</a>
+          <a href="article.html">Статья</a>
+          <a href="video.html">Видео</a>
+        </nav>
+        <p>© 2026 RateScope. Все права защищены.</p>
+      </footer>
+    </div>
+
+    <script>
+      class ImageRotator {
+        constructor(imageElement, options = {}) {
+          this.image = imageElement;
+          this.rotationAngle = 0;
+          this.isRotating = false;
+          this.rotationTime = options.rotationTime || 2000;
+          this.pauseTime = options.pauseTime || 4000;
+          this.rotationStep = options.rotationStep || 180;
+          this.startRotation();
+        }
+
+        startRotation() {
+          this.rotateStep();
+        }
+
+        rotateStep() {
+          if (this.isRotating) return;
+          this.isRotating = true;
+          const startAngle = this.rotationAngle;
+          const startTime = performance.now();
+
+          const animate = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / this.rotationTime, 1);
+            this.rotationAngle = startAngle + this.rotationStep * progress;
+            this.image.style.transform = `rotate(${this.rotationAngle}deg)`;
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              this.isRotating = false;
+              setTimeout(() => this.rotateStep(), this.pauseTime);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      }
+
+      const image = document.getElementById('myImage');
+      if (image) {
+        new ImageRotator(image, { rotationTime: 2000, pauseTime: 4000, rotationStep: 180 });
+      }
+
+      const themeToggleButton = document.getElementById('themeToggle');
+      const rootElement = document.documentElement;
+      const themeLabel = themeToggleButton.querySelector('.theme-toggle__text');
+      const savedTheme = localStorage.getItem('ratescope-theme');
+
+      if (savedTheme === 'dark') {
+        rootElement.setAttribute('data-theme', 'dark');
+        themeLabel.textContent = 'Светлая тема';
+      }
+
+      themeToggleButton.addEventListener('click', () => {
+        const isDark = rootElement.getAttribute('data-theme') === 'dark';
+        const nextTheme = isDark ? 'light' : 'dark';
+
+        rootElement.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('ratescope-theme', nextTheme);
+        themeLabel.textContent = nextTheme === 'dark' ? 'Светлая тема' : 'Тёмная тема';
+      });
+    </script>
+  </body>
+</html>
